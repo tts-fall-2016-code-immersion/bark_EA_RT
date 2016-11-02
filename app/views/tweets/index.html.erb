@@ -1,2 +1,6 @@
 <h1>Tweets#index</h1>
 <p>Find me in app/views/tweets/index.html.erb</p>
+<% Tweet.all.each do}|t|%>
+<%= t.message%><br>
+<%end%>
+<%= link_to 'Woof', new_tweet_path, class: 'btn btn-primary' %>
