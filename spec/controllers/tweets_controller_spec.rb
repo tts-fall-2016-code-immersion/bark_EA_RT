@@ -16,13 +16,6 @@ RSpec.describe TweetsController, type: :controller do
     end
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET #edit" do
     it "returns http success" do
       get :edit
@@ -33,6 +26,13 @@ RSpec.describe TweetsController, type: :controller do
   describe "GET #show" do
     it "returns http success" do
       get :show
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET #_form" do
+    it "returns http success" do
+      get :_form
       expect(response).to have_http_status(:success)
     end
   end

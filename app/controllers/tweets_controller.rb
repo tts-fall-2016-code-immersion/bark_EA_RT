@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
       if @tweet.save
         format.html { redirect_to tweet_path(@tweet.id), notice: 'success!'}
       else
-        format.html { render :new, error: 'there was a problem' }
+        format.html { render :new, error: @tweet.errors[:messavge] }
       end
     end
   end
@@ -28,13 +28,6 @@ class TweetsController < ApplicationController
   def show
   end
 
-  def destroy
-    @tweet.destory
-    respond_to do |format|
-      format.html {redirect_to root_path, notice: 'Tweet was deleted'}
-    end
-  end
-
   def update
 
     respond_to do |format|
@@ -43,6 +36,14 @@ class TweetsController < ApplicationController
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def destroy
+    @tweet.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Tweet was deleted'}
     end
   end
 
