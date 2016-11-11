@@ -1,8 +1,8 @@
-<h1><%= @user.username %>'s Profile'</h1>
+<!--<h1><%= @user.username %>'s Profile'</h1>
 
 <%= @user.tweets.each do |tweet| %>
 <%= tweet.message %><br />
-<% end %>
+<% end %>-->
 
 <div class="row">
    <div class= "col-xs-4">
@@ -20,7 +20,7 @@
    <%end%>
    <br />
    <br />
-   <%= pluralize(@user.inverse_relationships.count, "Follower") %>.
+   <%= pluralize(@user.inverse_relationships.count, "Follower") %>
    <br />
    <% @user.inverse_friends.each do |friend| %>
      <%=link_to friend.name, profile_path(friend) %> <br />
@@ -44,13 +44,6 @@
  <br />
 
 
-
-
-
-
-
-
-
  <% if current_user.id != @user.id %>
    <% if current_user.friends.include?(@user) %>
      <%= link_to 'Unfollow', relationship_path(current_user.relationships.find_by_friend_id(@user.id)), method: :delete, class: "btn btn-danger"%>
@@ -58,3 +51,5 @@
      <%= link_to "Follow", relationships_path(friend_id: @user.id), method: :post, class: 'btn btn-success' %>
    <% end %>
   <% end %>
+
+  <%= link_to 'Back', tweets_path %>

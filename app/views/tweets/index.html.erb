@@ -1,9 +1,4 @@
 <h1>Whatever, this is just a header</h1>
-
-
-
-  
-
 <table>
   <thead>
     <tr>
@@ -17,6 +12,9 @@
     <% @tweets.each do |tweet| %>
       <tr>
         <td><%= tweet.message %></td>
+        <td><%= link_to tweet.user.username, profile_path(tweet.user.id) %></td>
+
+
 
         <td><%= link_to 'Show', tweet_path(tweet.id) %></td>
         <td><%= link_to 'Edit', edit_tweet_path(tweet.id) %></td>
